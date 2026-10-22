@@ -1,10 +1,16 @@
 package br.com.dev.projeto.entities;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
 
+    @Id // Indica a chave primária
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Para dizer que esse valor é autoincrementável
     private Long id;
     private String name;
     private String email;
