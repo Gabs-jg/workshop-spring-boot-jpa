@@ -3,6 +3,7 @@ package br.com.dev.projeto.services;
 import br.com.dev.projeto.entities.User;
 import br.com.dev.projeto.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,5 +22,9 @@ public class UserService {
     public User findById(Long id) {
         Optional<User> obj = userRepository.findById(id);
         return obj.get();
+    }
+
+    public User insert(User obj) {
+        return userRepository.save(obj);
     }
 }
